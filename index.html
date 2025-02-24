@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер задач</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Менеджер задач</h1>
+
+    <!-- Школа продуктивности -->
+    <h2>Школа продуктивности</h2>
+    <p>Всего задач: {{ total_tasks }}</p>
+    <p>Выполнено задач: {{ completed_tasks }}</p>
+    <p>Продуктивность: {{ productivity_percentage }}%</p>
+
+    <h2>Список задач</h2>
+    <ul>
+        {% for task in tasks %}
+        <li class="{% if task.completed %}completed{% endif %}">
+            {{ task.title }} - {{ task.description }}
+            <br>
+            <small>Создано: {{ task.created_at|date:"d.m.Y H:i" }}</small>
+            <form action="{% url 'task-complete' task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">
+                    {% if task.completed %}Отметить как невыполненную{% else %}Отметить как выполненную{% endif %}
+                </button>
+            </form>
+            <form action="{% url 'task-delete' task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Удалить</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить новую задачу</h2>
+    <form action="{% url 'task-list' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Название задачи" required>
+        <input type="text" name="description" placeholder="Описание задачи">
+        <button type="submit">Добавить задачу</button>
+    </form>
+</body>
+</html>
