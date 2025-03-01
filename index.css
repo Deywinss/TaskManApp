@@ -1,0 +1,22 @@
+body {
+  margin: 0px;
+  font-family: 'Roboto'
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ccc;
+}
+
+span {
+  font-family: 'Roboto' !important
+}
+
+.header {
+  color: #333;
+  background-color: #fff;
+  font-size: 18px;
+}
+
+header {
+  padding-left: 20px !important
+}

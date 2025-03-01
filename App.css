@@ -1,0 +1,13 @@
+.avatar {
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background: #1677ff;
+}
+

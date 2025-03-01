@@ -1,0 +1,44 @@
+.bottom-menu  {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.bottom-menu,
+.bottom-menu .ant-menu-item {
+    background-color: #333;
+    color: #fff;
+}
+
+/* .bottom-menu .ant-menu-item {
+    opacity: 70% !important;
+} */
+
+.bottom-menu .ant-menu-item:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+
+.bottom-menu .ant-menu-item-selected {
+    background-color: #333 !important;
+    color: #fff !important;
+    opacity: 100% !important;
+}
+
+
+.bottom-menu .ant-menu-item-selected::after,
+.bottom-menu .ant-menu-item:hover {
+    border-bottom: 0px !important;
+}
+
+
+
+.menu-item-content > span{
+    text-align: center;
+    display: block;
+    line-height: 1.3;
+}
+
+
+
